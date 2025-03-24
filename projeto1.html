@@ -1,0 +1,154 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=bar-data-color&code=PYBwLglsB2AEC8sDeAoWsAeBBDEDOAXMmurGAJ4gCmRA5AMYCGYVA5sAE7m0A0J6AE2aMiAbX6laAJgAMARgDMvCemnyALMtKTZcgKxbtsNXIBsh7SYDsFnfIAct1boCcT47Nnu1Uud89S_jJSShIAuiQAvnzo5Dj4RKjaFNR0AG6MADYArlS0UTGweFQcEFSEsOLaSUZCYCKVKqQ1RqQZOTSwUvYyha3oECwAtgDKFJmdLf3o9MCZnHQAxDIyAGLrq_nT6JFNO3x7xNuw7blE6jLqAHSmff2DVKPjk4fas_McSysbm6-wu9NoihDlNWqdOgp7KYrlY7q0Hk9yBNEn8ZnMFsZlmsNlttgD-kCQX9wUQpC49HCjAixkiXsc0R8vtj1rjAYdCdNQUYSV05HIrhS_tTnij6bB3hjaFifqyCezKegudoeVZTNd7ArSMLaaL6RLPpjvji_vjWkDOcSsmdYOoXFYri5NQNhjTkUc9eiDVKjSyTfKicceXoXPyFE7YNq3UqjPqmTK_YDNdH0DzZL0hS6Re7jrHDczfsdTUZzf1kycrZ0XJCbuHI3SPYy8_HC_6A9seQpVTWM49XfWc5648aW2zWmFKSlOrQAEaMDiy_ERSIAbiAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  xAxis: {
+    type: 'category',
+    data: [
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018',
+      '2019',
+      '2020',
+      '2021',
+      '2022',
+      '2023'
+    ]
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [
+        {
+          value: 280,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+
+        {
+          value: 404.6,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+
+        {
+          value: 386.7,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+
+        {
+          value: 295,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+
+        {
+          value: 211.5,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+        {
+          value: 764.8,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+        {
+          value: 497.9,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+        {
+          value: 591.3,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+        {
+          value: 200,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+        {
+          value: 938.6,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        },
+
+        {
+          value: 376.6,
+          itemStyle: {
+            color: '#00FFFF'
+          }
+        }
+      ],
+      type: 'bar'
+    }
+  ]
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
