@@ -2,34 +2,41 @@
 <html lang="pt-BR" style="height: 100%">
 <head>
   <meta charset="utf-8">
-  <title>Interatividade Pluviométrica</title>
+  <title>Chuva Fazenda Carnaúba - Interativo</title>
 </head>
-<body style="height: 100%; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; background: #f4f4f4;">
+<body style="height: 100%; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; background: #f0f8ff; font-family: Arial, sans-serif;">
 
-  <h2>Volume de Chuva na Fazenda Carnaúba (2013–2023)</h2>
-  <button onclick="filtrarMenorQueMedia()" style="margin-bottom: 10px;">Exibir apenas anos com chuva abaixo da média</button>
-  <button onclick="resetarFiltro()" style="margin-bottom: 20px;">Resetar Filtro</button>
+  <h2 style="color: #003366;">🌧️ Volume de Chuva Anual na Fazenda Carnaúba (2013–2023)</h2>
+  <button onclick="filtrarMenorQueMedia()" style="margin-bottom: 10px; padding: 8px 16px;">🔍 Filtrar abaixo da média</button>
+  <button onclick="resetarFiltro()" style="margin-bottom: 20px; padding: 8px 16px;">🔄 Resetar Filtro</button>
 
   <div id="container" style="height: 80%; width: 90%; max-width: 900px;"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 
   <script type="text/javascript">
-    var dom = document.getElementById('container');
-    var myChart = echarts.init(dom);
+    const dom = document.getElementById('container');
+    const myChart = echarts.init(dom);
 
     const anos = ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023'];
     const valores = [280, 404.6, 386.7, 295, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 376.6];
 
-    const media = (valores.reduce((a, b) => a + b, 0)) / valores.length;
+    const media = valores.reduce((a, b) => a + b, 0) / valores.length;
+    const max = Math.max(...valores);
+    const min = Math.min(...valores);
 
     function gerarSerie(dados) {
-      return dados.map(v => ({
-        value: v,
-        itemStyle: {
-          color: '#00BFFF'
-        }
-      }));
+      return dados.map(v => {
+        let cor = '#00BFFF'; 
+        if (v === max) cor = '#FF4C4C'; 
+        else if (v === min) cor = '#32CD32'; 
+        return {
+          value: v,
+          itemStyle: {
+            color: cor
+          }
+        };
+      });
     }
 
     let option = {
@@ -38,7 +45,7 @@
         formatter: function (params) {
           let ano = params[0].axisValue;
           let valor = params[0].data.value;
-          return `${ano}<br/>Chuva: <b>${valor} mm</b>`;
+          return `${ano}<br/>💧 Chuva: <b>${valor} mm</b>`;
         }
       },
       dataZoom: [
@@ -53,7 +60,8 @@
       ],
       xAxis: {
         type: 'category',
-        data: anos
+        data: anos,
+        axisLabel: { rotate: 45 }
       },
       yAxis: {
         type: 'value',
